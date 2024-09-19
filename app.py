@@ -12,6 +12,16 @@ def format_response(content):
     return content.strip()
 
 
+def nice_format_response(res_json):
+    if '"next_action"' not in res_json:
+        res_dict = {"title": "STEP", "content": res_json, "next_action": "continue"}
+        res_json = json.dumps(res_dict)
+    else:
+        if '{"title"' in res_json and "}" in res_json:
+            res_json = res_json[res_json.find('{"title"'):res_json.find("}")+1]
+    return res_json
+
+
 def make_api_call(client, messages, max_tokens, is_final_answer=False):
     for attempt in range(3):
         try:
@@ -23,7 +33,12 @@ def make_api_call(client, messages, max_tokens, is_final_answer=False):
                 temperature=0.5,
                 # response_format={"type": "json_object"}
             )
+
+            if not response.choices[0].message.content:
+                raise Exception("No response generated")
+
             res_json = format_response(response.choices[0].message.content)
+            res_json = nice_format_response(res_json)
             print(res_json)
             return json.loads(res_json)
             # return json.loads(response.choices[0].message.content)
@@ -162,7 +177,7 @@ with gr.Blocks() as demo:
             )
             user_input = gr.Textbox(
                 label="Enter your query:",
-                placeholder="e.g., How many 'R's are in the word strawberry?",
+                placeholder="e.g., How many 'r's are in the word strawberry?",
                 lines=2
             )
             max_steps = gr.Slider(
