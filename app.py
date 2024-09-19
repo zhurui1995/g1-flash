@@ -130,7 +130,6 @@ def main(api_key, user_query, max_steps):
 
     try:
         # Initialize the glm-4-flash client with the provided API key
-        # client = ZhipuAI(api_key="7d0718efd2a1a60e7a395204cb55b8e8.TiNipt06yKQlU9op")
         client = ZhipuAI(api_key=api_key)
     except Exception as e:
         return f"Failed to initialize glm-4-flash client. Error: {str(e)}", ""
