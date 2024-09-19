@@ -100,7 +100,7 @@ How many 'R's are in the word strawberry?
 
 **Total Thinking Time**: 1.2 seconds
 
-![g1-flash e1](examples/strawberry2.png)
+![g1-flash e1](examples/strawberry3.png)
 
 ![g1-flash e2](examples/Turing_completeness.png)
 
@@ -229,7 +229,7 @@ pip install -r requirements.txt
 
 **总思考时间**：1.2 秒
 
-![g1-flash 示例1](examples/strawberry2.png)
+![g1-flash 示例1](examples/strawberry3.png)
 
 ![g1-flash 示例2](examples/Turing_completeness.png)
 
