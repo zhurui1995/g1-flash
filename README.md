@@ -99,9 +99,10 @@ How many 'R's are in the word strawberry?
    - Content: There are two 'R's in the word "strawberry".
 
 **Total Thinking Time**: 1.2 seconds
-![g1-flash e1](examples/strawberry.jpg)
 
-![g1-flash e2](examples/Turing_completeness.jpg)
+![g1-flash e1](examples/strawberry2.png)
+
+![g1-flash e2](examples/Turing_completeness.png)
 
 
 ## License
